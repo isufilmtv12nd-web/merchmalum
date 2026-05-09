@@ -162,7 +162,26 @@ body{
   .product-grid{
     grid-template-columns:1fr;
   }
+
+.preorder-btn{
+  margin-top:18px;
+  width:100%;
+  text-align:center;
+  padding:14px;
+  border-radius:14px;
+  font-weight:700;
+  font-size:15px;
+  transition:.25s ease;
 }
+
+.preorder-btn.disabled{
+  background:#d9d9d9;
+  color:#777;
+  cursor:not-allowed;
+  opacity:.85;
+  user-select:none;
+}
+  }
 </style>
 </head>
 
@@ -220,6 +239,9 @@ body{
         <span class="color-dot white"></span>
         <span class="color-dot pink"></span>
       </div>
+      <div class="preorder-btn disabled">
+  第二波預購即將開放
+</div>
 
     </article>
 
@@ -241,6 +263,9 @@ body{
     單張 NT$30
   </span>
 </div>
+ <div class="preorder-btn disabled">
+  第二波預購即將開放
+</div>
 
     </article>
 
@@ -256,6 +281,10 @@ body{
       <div class="product-name">雲上の果吊飾</div>
 
       <div class="product-price">NT$ 49</div>
+      
+      <div class="preorder-btn disabled">
+  第二波預購即將開放
+</div>
 
     </article>
 
@@ -271,6 +300,10 @@ body{
       <div class="product-name">越暗的地方你越亮</div>
 
       <div class="product-price">NT$ 150</div>
+
+      <div class="preorder-btn disabled">
+  第二波預購即將開放
+</div>
 
     </article>
 
