@@ -163,42 +163,23 @@ body{
     grid-template-columns:1fr;
   }
 
-.preorder-btn{
-  margin-top:18px;
-  width:100%;
+  .coming-soon{
+  margin-top:40px;
+  background:white;
+  border-radius:20px;
+  padding:20px;
   text-align:center;
-  padding:15px 18px;
-  border-radius:16px;
+  font-size:20px;
   font-weight:800;
-  font-size:15px;
-  letter-spacing:.03em;
-  transition:.25s ease;
-  border:none;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-}
-
-.preorder-btn.disabled{
-  background:linear-gradient(
-    180deg,
-    #dcdcdc 0%,
-    #cfcfcf 100%
-  );
-
-  color:#666;
-  cursor:not-allowed;
+  color:#444;
 
   box-shadow:
-    inset 0 1px 0 rgba(255,255,255,.8),
-    0 6px 14px rgba(0,0,0,.08);
+    0 10px 24px rgba(0,0,0,.06),
+    inset 0 1px 0 rgba(255,255,255,.8);
 
-  border:1px solid rgba(255,255,255,.7);
-
-  user-select:none;
+  letter-spacing:.03em;
 }
-  }
+   }
 </style>
 </head>
 
@@ -256,9 +237,6 @@ body{
         <span class="color-dot white"></span>
         <span class="color-dot pink"></span>
       </div>
-      <div class="preorder-btn disabled">
-  🔒 第二波預購即將開放
-</div>
 
     </article>
 
@@ -280,9 +258,6 @@ body{
     單張 NT$30
   </span>
 </div>
- <div class="preorder-btn disabled">
-  🔒 第二波預購即將開放
-</div>
 
     </article>
 
@@ -299,10 +274,6 @@ body{
 
       <div class="product-price">NT$ 49</div>
       
-      <div class="preorder-btn disabled">
-  🔒 第二波預購即將開放
-</div>
-
     </article>
 
     <!-- LED燈箱 -->
@@ -318,13 +289,13 @@ body{
 
       <div class="product-price">NT$ 150</div>
 
-     <div class="preorder-btn disabled">
-  🔒 第二波預購即將開放
-</div>
-
     </article>
 
   </section>
+
+  <div class="coming-soon">
+  🔒 第二波預購即將開放
+</div>
 
   <div class="footer">
     © MALUM Merchandise
