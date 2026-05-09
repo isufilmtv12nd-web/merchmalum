@@ -13,11 +13,10 @@
 }
 
 body{
-  min-height:100vh;
   background:#f4f1e9;
-  color:#222;
   font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Noto Sans TC",sans-serif;
   padding:28px;
+  color:#222;
 }
 
 .wrapper{
@@ -25,21 +24,17 @@ body{
   margin:0 auto;
 }
 
-.header{
-  display:flex;
-  justify-content:space-between;
-  align-items:flex-end;
-  margin-bottom:28px;
+.title{
+  margin-bottom:30px;
 }
 
-.header h1{
-  font-size:42px;
-  letter-spacing:-1px;
+.title h1{
+  font-size:44px;
+  margin-bottom:8px;
 }
 
-.header p{
+.title p{
   color:#777;
-  margin-top:8px;
 }
 
 .product-grid{
@@ -50,99 +45,116 @@ body{
 
 .product-card{
   background:#ebe9df;
-  border-radius:22px;
+  border-radius:24px;
+  overflow:hidden;
   padding:22px;
-  min-height:360px;
+  box-shadow:0 12px 28px rgba(0,0,0,.06);
+}
+
+.slider{
+  position:relative;
+  overflow:hidden;
+  border-radius:18px;
+}
+
+.slides{
   display:flex;
-  flex-direction:column;
-  justify-content:space-between;
-  box-shadow:0 10px 24px rgba(0,0,0,.06);
-  transition:.25s ease;
+  transition:transform .4s ease;
 }
 
-.product-card:hover{
-  transform:translateY(-5px);
-  box-shadow:0 18px 36px rgba(0,0,0,.1);
-}
-
-.product-image{
-  height:220px;
+.slide{
+  min-width:100%;
   display:flex;
   align-items:center;
   justify-content:center;
-  margin-bottom:18px;
+  height:260px;
 }
 
-.product-image img{
+.slide img{
   max-width:100%;
   max-height:100%;
   object-fit:contain;
 }
 
+.slider-buttons{
+  position:absolute;
+  width:100%;
+  top:50%;
+  transform:translateY(-50%);
+  display:flex;
+  justify-content:space-between;
+  padding:0 10px;
+}
+
+.slider-buttons button{
+  width:34px;
+  height:34px;
+  border:none;
+  border-radius:50%;
+  background:rgba(255,255,255,.9);
+  cursor:pointer;
+  font-size:18px;
+  font-weight:bold;
+}
+
 .product-category{
+  margin-top:18px;
   font-size:13px;
   color:#777;
-  margin-bottom:8px;
 }
 
 .product-name{
-  font-size:24px;
+  font-size:26px;
   font-weight:800;
-  margin-bottom:8px;
+  margin-top:6px;
 }
 
 .product-price{
-  color:#506c9a;
+  margin-top:8px;
+  font-size:17px;
+  color:#4f6b99;
   font-weight:800;
-  font-size:16px;
+}
+
+.color-name{
+  margin-top:10px;
+  font-size:15px;
+  font-weight:700;
 }
 
 .colors{
   display:flex;
-  gap:8px;
-  margin-top:10px;
+  gap:10px;
+  margin-top:12px;
 }
 
 .color-dot{
-  width:18px;
-  height:18px;
+  width:20px;
+  height:20px;
   border-radius:50%;
   border:2px solid white;
   box-shadow:0 0 0 1px rgba(0,0,0,.2);
 }
 
-.black{ background:#111; }
-.white{ background:#f7f7f7; }
-.red{ background:#9b1c1c; }
+.black{
+  background:#111;
+}
+
+.white{
+  background:#f7f7f7;
+}
+
+.red{
+  background:#8b1d1d;
+}
 
 .footer{
   text-align:center;
   margin-top:30px;
   color:#777;
-  font-size:14px;
 }
 
 @media(max-width:900px){
-  .product-grid{
-    grid-template-columns:repeat(2,1fr);
-  }
-}
-
-@media(max-width:600px){
-  body{
-    padding:16px;
-  }
-
-  .header{
-    flex-direction:column;
-    align-items:flex-start;
-    gap:8px;
-  }
-
-  .header h1{
-    font-size:34px;
-  }
-
   .product-grid{
     grid-template-columns:1fr;
   }
@@ -154,91 +166,102 @@ body{
 
 <div class="wrapper">
 
-  <header class="header">
-    <div>
-      <h1>MALUM 周邊商品</h1>
-      <p>Graduation Showcase Merchandise</p>
-    </div>
-  </header>
+  <div class="title">
+    <h1>MALUM 周邊商品</h1>
+    <p>Graduation Showcase Merchandise</p>
+  </div>
 
   <section class="product-grid">
 
+    <!-- 衣服 -->
     <article class="product-card">
-      <div>
-        <div class="product-image">
-          <img src="images/clothes-black.jpg" alt="黑色衣服">
-        </div>
-        <div class="product-category">Clothes</div>
-        <div class="product-name">黑色衣服</div>
-        <div class="product-price">NT$ 000</div>
 
-        <div class="colors">
-          <span class="color-dot black"></span>
+      <div class="slider">
+
+        <div class="slides" id="slides">
+
+          <div class="slide">
+            <img src="images/clothes-black.jpg" alt="">
+          </div>
+
+          <div class="slide">
+            <img src="images/clothes-white.jpg" alt="">
+          </div>
+
+          <div class="slide">
+            <img src="images/clothes-red.jpg" alt="">
+          </div>
+
         </div>
+
+        <div class="slider-buttons">
+          <button onclick="prevSlide()">‹</button>
+          <button onclick="nextSlide()">›</button>
+        </div>
+
       </div>
+
+      <div class="product-category">Clothes</div>
+
+      <div class="product-name">MALUM T-Shirt</div>
+
+      <div class="product-price">NT$ 650</div>
+
+      <div class="color-name" id="colorName">
+        Black
+      </div>
+
+      <div class="colors">
+        <span class="color-dot black"></span>
+        <span class="color-dot white"></span>
+        <span class="color-dot red"></span>
+      </div>
+
     </article>
 
+    <!-- 貼紙 -->
     <article class="product-card">
-      <div>
-        <div class="product-image">
-          <img src="images/clothes-white.jpg" alt="白色衣服">
-        </div>
-        <div class="product-category">Clothes</div>
-        <div class="product-name">白色衣服</div>
-        <div class="product-price">NT$ 000</div>
 
-        <div class="colors">
-          <span class="color-dot white"></span>
-        </div>
+      <div class="slide" style="height:260px;">
+        <img src="images/sticker.jpg" alt="">
       </div>
+
+      <div class="product-category">Sticker</div>
+
+      <div class="product-name">貼紙</div>
+
+      <div class="product-price">NT$ 80</div>
+
     </article>
 
+    <!-- 吊飾 -->
     <article class="product-card">
-      <div>
-        <div class="product-image">
-          <img src="images/clothes-red.jpg" alt="紅色衣服">
-        </div>
-        <div class="product-category">Clothes</div>
-        <div class="product-name">紅色衣服</div>
-        <div class="product-price">NT$ 000</div>
 
-        <div class="colors">
-          <span class="color-dot red"></span>
-        </div>
+      <div class="slide" style="height:260px;">
+        <img src="images/keychain.jpg" alt="">
       </div>
+
+      <div class="product-category">Keychain</div>
+
+      <div class="product-name">吊飾</div>
+
+      <div class="product-price">NT$ 150</div>
+
     </article>
 
+    <!-- LED燈箱 -->
     <article class="product-card">
-      <div>
-        <div class="product-image">
-          <img src="images/sticker.jpg" alt="貼紙">
-        </div>
-        <div class="product-category">Sticker</div>
-        <div class="product-name">貼紙</div>
-        <div class="product-price">NT$ 000</div>
-      </div>
-    </article>
 
-    <article class="product-card">
-      <div>
-        <div class="product-image">
-          <img src="images/keychain.jpg" alt="吊飾">
-        </div>
-        <div class="product-category">Keychain</div>
-        <div class="product-name">吊飾</div>
-        <div class="product-price">NT$ 000</div>
+      <div class="slide" style="height:260px;">
+        <img src="images/lightbox.jpg" alt="">
       </div>
-    </article>
 
-    <article class="product-card">
-      <div>
-        <div class="product-image">
-          <img src="images/lightbox.jpg" alt="LED燈箱">
-        </div>
-        <div class="product-category">LED Light Box</div>
-        <div class="product-name">LED 燈箱</div>
-        <div class="product-price">NT$ 000</div>
-      </div>
+      <div class="product-category">LED Light Box</div>
+
+      <div class="product-name">LED燈箱</div>
+
+      <div class="product-price">NT$ 1200</div>
+
     </article>
 
   </section>
@@ -248,6 +271,46 @@ body{
   </div>
 
 </div>
+
+<script>
+const slides = document.getElementById('slides');
+const colorName = document.getElementById('colorName');
+
+const colors = [
+  "Black",
+  "White",
+  "Red"
+];
+
+let currentIndex = 0;
+
+function updateSlide(){
+  slides.style.transform =
+    `translateX(-${currentIndex * 100}%)`;
+
+  colorName.textContent = colors[currentIndex];
+}
+
+function nextSlide(){
+  currentIndex++;
+
+  if(currentIndex > 2){
+    currentIndex = 0;
+  }
+
+  updateSlide();
+}
+
+function prevSlide(){
+  currentIndex--;
+
+  if(currentIndex < 0){
+    currentIndex = 2;
+  }
+
+  updateSlide();
+}
+</script>
 
 </body>
 </html>
